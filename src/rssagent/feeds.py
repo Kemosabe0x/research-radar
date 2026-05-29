@@ -98,7 +98,7 @@ def _process_entries(journal_name: str, feed: feedparser.FeedParserDict) -> int:
 
         if not is_article_seen(link):
             save_article(journal_name, title, link, published)
-            notify_new_article(journal_name, title, link)
+            notify_new_article(journal_name, title, link, published)
             new_count += 1
     return new_count
 
@@ -178,7 +178,7 @@ def fallback_scraper(journal_name: str, website_url: str) -> int:
         if not is_article_seen(link):
             title = f"Article from {journal_name} (scraped)"
             save_article(journal_name, title, link, "")
-            notify_new_article(journal_name, title, link)
+            notify_new_article(journal_name, title, link, "")
             new_count += 1
 
     logger.info(

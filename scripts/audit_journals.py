@@ -451,7 +451,7 @@ def audit_journal(row: pd.Series, *, verify_fixes: bool = True) -> JournalAudit:
         website_normalized=web_norm,
         category=category,
         rss_status="ok" if rss_ok else "fail",
-        rss_detail=detail if category == "rss_ok" else rss_reason,
+        rss_detail=detail,
         website_status=web_status,
         website_detail=web_detail,
         entry_count=rss_entries,

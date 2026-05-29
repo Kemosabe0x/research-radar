@@ -18,6 +18,7 @@ dependencies = [
 
 [project.scripts]
 rssagent = "rssagent.monitor:main"
+rssagent-api = "rssagent.api:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]

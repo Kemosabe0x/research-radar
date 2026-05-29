@@ -1,13 +1,13 @@
 ID,Journal Name,Topic,Subtopic,RSS Feed,Tracking Status,Last Updated,Priority,Website
 1,American Journal of Sports Medicine,Sports Medicine,General,https://journals.sagepub.com/action/showFeed?jc=ajsa&type=etoc&feed=rss,Active,,Medium,https://www.ajsm.org
-2,Journal of Physiology,Physiology,General,https://rupress.org/jgp/pages/rss,Active,,Medium,https://www.physoc.org/journal/the-journal-of-physiology/
+2,Journal of Physiology,Physiology,General,https://physoc.onlinelibrary.wiley.com/feed/14697793/most-recent,Active,,Medium,https://www.physoc.org/journal/the-journal-of-physiology/
 3,Sports Medicine,Sports Medicine,General,https://link.springer.com/search.rss?facet-journal-id=40279,Active,,Medium,https://www.springer.com/journal/40279
-4,British Journal of Sports Medicine,Sports Medicine,General,https://bjsm.bmj.com/pages/rss-feeds,Active,,Medium,https://bjsm.bmj.com/
+4,British Journal of Sports Medicine,Sports Medicine,General,https://bjsm.bmj.com/rss/current.xml,Active,,Medium,https://bjsm.bmj.com/
 5,Exercise and Sport Sciences Reviews,Sports Science,Reviews,https://journals.lww.com/acsm-essr/_layouts/15/Ovid.Custom/rss/feed.aspx?FeedType=CurrentIssue,Active,,Medium,http://www.acsm-essr.com/
 6,Medicine and Science in Sports and Exercise,Sports Science,General,,Active,,Medium,http://acsm-msse.org
 7,International Review of Sport and Exercise Psychology,Psychology,General,https://www.tandfonline.com/action/showFeed?jc=rirs20&type=etoc&feed=rss,Active,,Medium,https://www.tandfonline.com/toc/rirs20/current
 8,International Journal of Sports Physiology and Performance,Physiology,Performance,https://journals.humankinetics.com/action/showFeed?jc=ijspp&type=etoc&feed=rss,Active,,Medium,https://journals.humankinetics.com/view/journals/ijspp/ijspp-overview.xml
-9,Journal of Applied Physiology,Physiology,Applied,https://journals.physiology.org/journal/jappl,Active,,Medium,https://journals.physiology.org/journal/jappl
+9,Journal of Applied Physiology,Physiology,Applied,https://journals.physiology.org/action/showFeed?jc=jappl&type=etoc&feed=rss,Active,,Medium,https://journals.physiology.org/journal/jappl
 10,Journal of Science and Medicine in Sport,Sports Medicine,General,https://www.jsams.org/inpress.rss,Active,,Medium,https://www.jsams.org/
 11,Psychology of Sport and Exercise,Psychology,General,https://rss.sciencedirect.com/publication/science/14690292,Active,,Medium,https://www.journals.elsevier.com/psychology-of-sport-and-exercise
 12,Journal of Sport and Exercise Psychology,Psychology,General,https://journals.humankinetics.com/action/showFeed?jc=jsep&type=etoc&feed=rss,Active,,Medium,https://journals.humankinetics.com/view/journals/jsep/jsep-overview.xml
@@ -136,20 +136,20 @@ ID,Journal Name,Topic,Subtopic,RSS Feed,Tracking Status,Last Updated,Priority,We
 135,Journal for the Society of Neurosport,Sports Medicine,Neurosport,,Active,,Medium,https://neurosport.org/
 136,International Journal of Environmental Research and Public Health,Public Health,Environmental,https://www.mdpi.com/rss/journal/ijerph,Active,,Medium,https://www.mdpi.com/journal/ijerph
 137,Frontiers in Sports and Active Living,Sports Science,Active Living,https://www.frontiersin.org/journals/sports-and-active-living/rss,Active,,Medium,https://www.frontiersin.org/journals/sports-and-active-living
-138,Squat University,Sports Science,"Biomechanics, Injury Prevention",squatuniversity.com/feed,Active,,Medium,https://squatuniversity.com
-139,BarBend,Sports Science,"Strength Sports News, Guides",barbend.com/feed,Active,,Medium,https://barbend.com
-140,StrongFirst,Sports Science,"Kettlebell, Bodyweight, Tension",strongfirst.com/blog/feed,Active,,Medium,https://strongfirst.com
-141,Westside Barbell,Sports Science,"Conjugate Method, Powerlifting",westside-barbell.com/blogs/t...,Active,,Medium,https://westside-barbell.com
-142,Train Heroic,Sports Science,"Coaching software, Team conditioning",trainheroic.com/feed,Active,,Medium,https://trainheroic.com
-143,Juggernaut,Sports Science,"Powerlifting, Olympic Lifting",jtsstrength.com/category/wei...,Active,,Medium,https://jtsstrength.com
-144,Starting Strength,Sports Science,Foundational Barbell Training,startingstrength.com/rss.rss,Active,,Medium,https://startingstrength.com
-145,Precision Nutrition,Nutrition,"Behavior Change, Habits",precisionnutrition.com/blog/...,Active,,Medium,https://precisionnutrition.com
-146,Legion Athletics,Nutrition,"Supplement Science, Diet Plans",legionathletics.com/blog/feed,Active,,Medium,https://legionathletics.com
-147,NutritionFacts.org,Nutrition,"Plant-Based Nutrition, Disease",nutritionfacts.org/feed,Active,,Medium,https://nutritionfacts.org
+138,Squat University,Sports Science,"Biomechanics, Injury Prevention",https://squatuniversity.com/feed,Active,,Medium,https://squatuniversity.com
+139,BarBend,Sports Science,"Strength Sports News, Guides",https://barbend.com/feed.xml,Active,,Medium,https://barbend.com
+140,StrongFirst,Sports Science,"Kettlebell, Bodyweight, Tension",https://strongfirst.com/blog/feed,Active,,Medium,https://strongfirst.com
+141,Westside Barbell,Sports Science,"Conjugate Method, Powerlifting",,Active,,Medium,https://westside-barbell.com
+142,Train Heroic,Sports Science,"Coaching software, Team conditioning",https://trainheroic.com/feed,Active,,Medium,https://trainheroic.com
+143,Juggernaut,Sports Science,"Powerlifting, Olympic Lifting",https://www.jtsstrength.com/feed/,Active,,Medium,https://jtsstrength.com
+144,Starting Strength,Sports Science,Foundational Barbell Training,https://startingstrength.com/rss.rss,Active,,Medium,https://startingstrength.com
+145,Precision Nutrition,Nutrition,"Behavior Change, Habits",https://www.precisionnutrition.com/blog/feed,Active,,Medium,https://precisionnutrition.com
+146,Legion Athletics,Nutrition,"Supplement Science, Diet Plans",https://legionathletics.com/blog/feed,Active,,Medium,https://legionathletics.com
+147,NutritionFacts.org,Nutrition,"Plant-Based Nutrition, Disease",https://nutritionfacts.org/feed,Active,,Medium,https://nutritionfacts.org
 148,RP Strength,Nutrition,"Periodization, Body Composition",(General Website Integration),Active,,Medium,https://rpstrength.com
-149,Kath Eats,Nutrition,Everyday Healthy Eating,katheats.com/feed,Active,,Medium,https://katheats.com
-150,Real Mom Nutrition,Nutrition,"Family Nutrition, Dietetics",realmomnutrition.com/feed,Active,,Medium,https://realmomnutrition.com
-151,The PTDC,Professional Development,"Business Strategy, Online Coaching",theptdc.com/feed,Active,,Medium,https://theptdc.com
-152,OriGym Blog,Professional Development,"Certification, CPD",origym.co.uk/feed,Active,,Medium,https://origym.co.uk
-153,TrainFitness,Professional Development,"Instructor Resources, News",train.fitness/personal-train...,Active,,Medium,https://train.fitness
-154,ACE Fitness Blog,Professional Development,"Certifications, Expert Insights",acefitness.org/resources/eve...,Active,,Medium,https://acefitness.org
+149,Kath Eats,Nutrition,Everyday Healthy Eating,https://katheats.com/feed,Active,,Medium,https://katheats.com
+150,Real Mom Nutrition,Nutrition,"Family Nutrition, Dietetics",https://realmomnutrition.com/feed,Active,,Medium,https://realmomnutrition.com
+151,The PTDC,Professional Development,"Business Strategy, Online Coaching",https://theptdc.com/feed,Active,,Medium,https://theptdc.com
+152,OriGym Blog,Professional Development,"Certification, CPD",https://origym.co.uk/feed,Active,,Medium,https://origym.co.uk
+153,TrainFitness,Professional Development,"Instructor Resources, News",https://train.fitness/feed,Active,,Medium,https://train.fitness
+154,ACE Fitness Blog,Professional Development,"Certifications, Expert Insights",,Active,,Medium,https://acefitness.org

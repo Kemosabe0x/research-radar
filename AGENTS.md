@@ -26,10 +26,10 @@ CSV journal list
 
 ### Two paths, one ingestion pipeline
 
-| Path | Trigger | Purpose |
-|------|---------|---------|
-| **Alert** | Every unseen article | Fast, customized user notification (title, journal, link, short context) |
-| **Generate** | Conditional (TBD) | Deeper synthesis and long-form content when volume/quality thresholds are met |
+| Path         | Trigger              | Purpose                                                                       |
+| ------------ | -------------------- | ----------------------------------------------------------------------------- |
+| **Alert**    | Every unseen article | Fast, customized user notification (title, journal, link, short context)      |
+| **Generate** | Conditional (TBD)    | Deeper synthesis and long-form content when volume/quality thresholds are met |
 
 Do not block alerts on LLM latency or cost. Generation runs asynchronously or on a separate schedule.
 
@@ -72,16 +72,13 @@ Pick one hosting path per deployment; keep provider code host-agnostic.
 
 ## Repository Layout
 
-| Path | Role |
-|------|------|
-| `Journals - Journal List.csv` | Master journal database |
-| `deepseek.py` | Reference RSS monitor (logging, webhook, fallback scraper) |
-| `gemini.py` | Legacy duplicate — consolidate into main module over time |
-| `journal_tracker.db` | Local SQLite (gitignored) |
-| `content/` | Generated markdown (structure TBD) |
-| `web/` or `apps/web/` | Next.js UI (TBD) |
-
-**Known fix:** Scripts reference `Journals - Master Journal List.csv` but the file is `Journals - Journal List.csv`. Align names when touching ingestion code.
+| Path                  | Role                                                     |
+| --------------------- | -------------------------------------------------------- |
+| `Journals.csv`        | Master journal database                                  |
+| `src/rssagent/`       | RSS monitor package (logging, webhook, fallback scraper) |
+| `journal_tracker.db`  | Local SQLite (gitignored)                                |
+| `content/`            | Generated markdown (structure TBD)                       |
+| `web/` or `apps/web/` | Next.js UI (TBD)                                         |
 
 ## Public Repository Rules
 
@@ -103,48 +100,48 @@ Focus agent skills on this stack. Ignore unrelated domains unless the user expli
 
 ### Core (always relevant)
 
-| Skill | Use for |
-|-------|---------|
-| `gemini-api-dev`, `gemini-interactions-api` | Gemini integration |
-| `vertex-ai-api-dev` | Enterprise Gemini on GCP |
-| `openai-docs`, `codex-openai-docs` | Optional OpenAI provider |
-| `managing-python-dependencies` | Python deps and venv |
-| `ce-debug`, `systematic-debugging` | RSS, scraping, LLM failures |
-| `verification-before-completion` | Run checks before claiming done |
-| `codex-security-best-practices` | Secrets, input handling, public repo safety |
-| `accidental-data-loss-prevention` | SQLite and destructive ops |
-| `ce-plan`, `ce-work`, `writing-plans` | Multi-step features |
-| `ce-compound` | Document solutions under `docs/solutions/` |
-| `ce-code-review`, `ce-commit` | PRs and commits when asked |
+| Skill                                       | Use for                                     |
+| ------------------------------------------- | ------------------------------------------- |
+| `gemini-api-dev`, `gemini-interactions-api` | Gemini integration                          |
+| `vertex-ai-api-dev`                         | Enterprise Gemini on GCP                    |
+| `openai-docs`, `codex-openai-docs`          | Optional OpenAI provider                    |
+| `managing-python-dependencies`              | Python deps and venv                        |
+| `ce-debug`, `systematic-debugging`          | RSS, scraping, LLM failures                 |
+| `verification-before-completion`            | Run checks before claiming done             |
+| `codex-security-best-practices`             | Secrets, input handling, public repo safety |
+| `accidental-data-loss-prevention`           | SQLite and destructive ops                  |
+| `ce-plan`, `ce-work`, `writing-plans`       | Multi-step features                         |
+| `ce-compound`                               | Document solutions under `docs/solutions/`  |
+| `ce-code-review`, `ce-commit`               | PRs and commits when asked                  |
 
 ### Cloud & deployment (keep enabled)
 
-| Skill | Use for |
-|-------|---------|
-| `aws-lambda`, `aws-serverless-deployment` | Lambda cron, packaging |
-| `api-gateway` | HTTP triggers if needed |
+| Skill                                                     | Use for                   |
+| --------------------------------------------------------- | ------------------------- |
+| `aws-lambda`, `aws-serverless-deployment`                 | Lambda cron, packaging    |
+| `api-gateway`                                             | HTTP triggers if needed   |
 | `workers-best-practices`, `wrangler`, `cloudflare-deploy` | Workers cron, edge deploy |
-| `codex-vercel-deploy` | Vercel deploy for UI/API |
+| `codex-vercel-deploy`                                     | Vercel deploy for UI/API  |
 
 ### Web UI (keep enabled)
 
-| Skill | Use for |
-|-------|---------|
-| `next-best-practices` | Next.js App Router, RSC, routing |
-| `shadcn`, `shadcn-ui` | Component library |
-| `vercel-react-best-practices` | React performance patterns |
-| `ai-sdk` | Streaming LLM output in UI if needed |
-| `frontend-design`, `web-design-guidelines` | Dashboard layout and a11y |
-| `webapp-testing`, `codex-playwright` | UI dev testing and E2E |
-| `modern-web-guidance` | CSS/layout/modern web APIs (plugin) |
+| Skill                                      | Use for                              |
+| ------------------------------------------ | ------------------------------------ |
+| `next-best-practices`                      | Next.js App Router, RSC, routing     |
+| `shadcn`, `shadcn-ui`                      | Component library                    |
+| `vercel-react-best-practices`              | React performance patterns           |
+| `ai-sdk`                                   | Streaming LLM output in UI if needed |
+| `frontend-design`, `web-design-guidelines` | Dashboard layout and a11y            |
+| `webapp-testing`, `codex-playwright`       | UI dev testing and E2E               |
+| `modern-web-guidance`                      | CSS/layout/modern web APIs (plugin)  |
 
 ### Other optional
 
-| Skill | Use for |
-|-------|---------|
-| `notebook-guidance`, `ml-best-practices` | Feed analysis experiments |
-| `copywriting` | Article voice and digest tone |
-| `loop` | Dev-time monitored polling |
+| Skill                                    | Use for                       |
+| ---------------------------------------- | ----------------------------- |
+| `notebook-guidance`, `ml-best-practices` | Feed analysis experiments     |
+| `copywriting`                            | Article voice and digest tone |
+| `loop`                                   | Dev-time monitored polling    |
 
 ## Agent Skills — Ignore Unless Asked
 
@@ -163,7 +160,7 @@ Do **not** load or suggest skills from these domains for routine RSSAgent work:
 ## Coding Conventions
 
 - Python 3.10+; type hints on new public functions.
-- Logging over bare `print` in production paths (`deepseek.py` pattern).
+- Logging over bare `print` in production paths (`src/rssagent/` pattern).
 - Small, focused diffs; match existing style in the file you edit.
 - Provider clients live behind a single router module — no inline API calls in RSS loop code.
 - Tests for provider router and dedupe logic when added; mock external APIs.

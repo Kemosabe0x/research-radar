@@ -34,5 +34,5 @@ Marketing, Figma/Stitch, BigQuery/dbt/Dataform, SageMaker/HyperPod, unrelated fr
 - Env vars for all API keys and webhooks; document in `.env.example`
 - Provider logic in one router module — not in the RSS poll loop
 - `time.sleep` between feed requests; log errors, don't crash the cycle
-- Match `deepseek.py` logging patterns for new Python code
+- Match `src/rssagent/` logging patterns for new Python code
 - Minimal diffs; no over-engineering until generation thresholds are defined

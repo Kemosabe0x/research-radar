@@ -10,8 +10,8 @@ Single source of truth for implementation in this repo. Read `AGENTS.md` for con
 ## Pipeline
 
 ```
-Journals - Journal List.csv
-  → poll RSS (feedparser) or fallback scraper (BeautifulSoup)
+Journals.csv
+  → poll RSS (requests + feedparser); on invalid URL / fetch / parse failure → website scraper
   → SQLite seen_articles (dedupe by article_link)
   → Alert path: every new item → fast customized message
   → Generate path: conditional → synthesize → write markdown
@@ -22,13 +22,10 @@ Journals - Journal List.csv
 
 ## Codebase
 
-| File | Notes |
-|------|--------|
-| `deepseek.py` | Best reference monitor (logging, webhook, fallback) |
-| `gemini.py` | Legacy duplicate — consolidate, do not extend |
-| `Journals - Journal List.csv` | Master list (scripts wrongly say `Master Journal List`) |
-
-Fix CSV filename mismatch when touching ingestion.
+| File            | Notes                                                  |
+| --------------- | ------------------------------------------------------ |
+| `src/rssagent/` | Ingestion package (logging, webhook, fallback scraper) |
+| `Journals.csv`  | Master journal list                                    |
 
 ## LLM router (target layout)
 
@@ -51,11 +48,11 @@ UI reads from an API layer — keep RSS polling in Python, not in the frontend.
 
 ### Tasks → models
 
-| Task | Latency | Provider default |
-|------|---------|------------------|
-| `alert` | Low | Gemini (fast/cheap) |
-| `synthesize` | Medium | Gemini or Bedrock Claude |
-| `generate` | High | Best writing model available |
+| Task         | Latency | Provider default             |
+| ------------ | ------- | ---------------------------- |
+| `alert`      | Low     | Gemini (fast/cheap)          |
+| `synthesize` | Medium  | Gemini or Bedrock Claude     |
+| `generate`   | High    | Best writing model available |
 
 Router interface:
 
@@ -87,7 +84,7 @@ LLM_PROVIDER_GENERATE=bedrock
 ```yaml
 ---
 title:
-sources: [{journal, url, published}]
+sources: [{ journal, url, published }]
 provider:
 model:
 generated_at:
@@ -107,8 +104,8 @@ Generation thresholds are TBD (volume caps, priority journals, spend limits). St
 
 ## Implementation order
 
-1. Align CSV filename; consolidate `deepseek.py` / `gemini.py`
-2. Add `.env.example`, `requirements.txt`, package layout
+1. ~~Align CSV filename; consolidate `deepseek.py` / `gemini.py`~~
+2. Add `.env.example`; extend package (LLM router, etc.)
 3. Router skeleton — Gemini live, Bedrock stub with graceful skip
 4. Alert path wired to router (`task="alert"`)
 5. Conditional generation hook + markdown writers
@@ -119,19 +116,19 @@ Generation thresholds are TBD (volume caps, priority journals, spend limits). St
 
 Load these **instead of** guessing API details — do not load marketing or design skills.
 
-| Need | Skill |
-|------|--------|
-| Gemini API | `gemini-interactions-api` or `gemini-api-dev` |
-| Vertex Gemini | `vertex-ai-api-dev` |
-| OpenAI fallback | `openai-docs` |
-| Python deps | `managing-python-dependencies` |
-| Lambda deploy | `aws-lambda`, `aws-serverless-deployment` |
-| Workers deploy | `wrangler`, `workers-best-practices`, `cloudflare-deploy` |
-| Vercel / Next.js | `next-best-practices`, `codex-vercel-deploy` |
-| shadcn components | `shadcn`, `shadcn-ui` |
-| React perf | `vercel-react-best-practices` |
-| UI testing | `webapp-testing`, `codex-playwright` |
-| Security review | `codex-security-best-practices` |
+| Need              | Skill                                                     |
+| ----------------- | --------------------------------------------------------- |
+| Gemini API        | `gemini-interactions-api` or `gemini-api-dev`             |
+| Vertex Gemini     | `vertex-ai-api-dev`                                       |
+| OpenAI fallback   | `openai-docs`                                             |
+| Python deps       | `managing-python-dependencies`                            |
+| Lambda deploy     | `aws-lambda`, `aws-serverless-deployment`                 |
+| Workers deploy    | `wrangler`, `workers-best-practices`, `cloudflare-deploy` |
+| Vercel / Next.js  | `next-best-practices`, `codex-vercel-deploy`              |
+| shadcn components | `shadcn`, `shadcn-ui`                                     |
+| React perf        | `vercel-react-best-practices`                             |
+| UI testing        | `webapp-testing`, `codex-playwright`                      |
+| Security review   | `codex-security-best-practices`                           |
 
 ## Verification
 

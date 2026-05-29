@@ -8,7 +8,7 @@ Here is the best-practice approach and a complete Python script to get you start
 
 - **feedparser**: The absolute best library for reading and extracting data from RSS/Atom feeds.
 
-- **pandas**: To load and manage your Journals - Master Journal List.csv file.
+- **pandas**: To load and manage `Journals.csv`.
 
 - **sqlite3** (Built-in): To maintain a lightweight local database of "seen" articles. This prevents your system from spamming you with duplicate content every time it runs.
 

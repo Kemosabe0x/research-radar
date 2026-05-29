@@ -1,0 +1,80 @@
+# Declarative skill profile for this project.
+# Run: cursor-project-skills apply  (see docs/project-skills-workflow.md)
+# Project-local skills in .cursor/skills/ are always enabled (e.g. rssagent).
+
+version: 1
+project: RSSAgent
+
+presets:
+  backend-ui:
+    description: RSS ingestion, LLM pipeline, Next.js/shadcn dev UI
+    skills:
+      - gemini-api-dev
+      - gemini-interactions-api
+      - vertex-ai-api-dev
+      - managing-python-dependencies
+      - openai-docs
+      - codex-security-best-practices
+      - accidental-data-loss-prevention
+      - ai-sdk
+      - ai-elements
+      - cloudflare-deploy
+      - wrangler
+      - workers-best-practices
+      - codex-vercel-deploy
+      - next-best-practices
+      - shadcn
+      - shadcn-ui
+      - vercel-react-best-practices
+      - frontend-design
+      - web-design-guidelines
+      - web-perf
+      - webapp-testing
+      - codex-playwright
+      - ui-ux-pro-max
+      - code-reviewer
+      - brainstorming
+
+  backend-only:
+    description: Python RSS + LLM; no frontend work
+    skills:
+      - gemini-api-dev
+      - gemini-interactions-api
+      - vertex-ai-api-dev
+      - managing-python-dependencies
+      - openai-docs
+      - codex-security-best-practices
+      - accidental-data-loss-prevention
+      - cloudflare-deploy
+      - wrangler
+      - workers-best-practices
+      - code-reviewer
+
+# Updated when you run the setup script (--apply or TUI confirm).
+enabled_preset: backend-ui
+enabled:
+  - gemini-api-dev
+  - gemini-interactions-api
+  - vertex-ai-api-dev
+  - managing-python-dependencies
+  - openai-docs
+  - codex-security-best-practices
+  - accidental-data-loss-prevention
+  - ai-sdk
+  - ai-elements
+  - cloudflare-deploy
+  - wrangler
+  - workers-best-practices
+  - codex-vercel-deploy
+  - next-best-practices
+  - shadcn
+  - shadcn-ui
+  - vercel-react-best-practices
+  - frontend-design
+  - web-design-guidelines
+  - web-perf
+  - webapp-testing
+  - codex-playwright
+  - ui-ux-pro-max
+  - code-reviewer
+  - brainstorming

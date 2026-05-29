@@ -1,0 +1,3 @@
+# Optional — thin wrapper scripts/setup-project-skills.py delegates to:
+#   pip install -e /path/to/Cursor-Project-Skills
+# No local pyyaml/questionary needed when using the external package.

@@ -8,6 +8,8 @@ Guidance for AI agents and human contributors working on this public repository.
 
 The next layer adds a **multi-provider LLM pipeline** that interprets feed data and generates written content — without replacing the real-time alert path.
 
+A **web UI** is planned (auth portal or dev testing dashboard) for browsing feeds, alerts, and generated articles — likely **Next.js + shadcn/ui**, deployed via Vercel or similar.
+
 ## Architecture (Target)
 
 ```
@@ -61,6 +63,13 @@ Configuration via environment variables only — never commit keys. See `.env.ex
 
 Pick one hosting path per deployment; keep provider code host-agnostic.
 
+### Web UI (planned)
+
+- **Stack:** Next.js App Router, shadcn/ui, TypeScript — follow `next-best-practices` and `vercel-react-best-practices`.
+- **Purpose:** Dev testing dashboard first; optional auth-gated portal later (Clerk/Auth0/etc. TBD).
+- **Data:** UI reads from API layer over SQLite/generated content — do not embed Python RSS loop in the frontend.
+- **Location (TBD):** e.g. `apps/web/` or `web/` in a monorepo layout.
+
 ## Repository Layout
 
 | Path | Role |
@@ -70,6 +79,7 @@ Pick one hosting path per deployment; keep provider code host-agnostic.
 | `gemini.py` | Legacy duplicate — consolidate into main module over time |
 | `journal_tracker.db` | Local SQLite (gitignored) |
 | `content/` | Generated markdown (structure TBD) |
+| `web/` or `apps/web/` | Next.js UI (TBD) |
 
 **Known fix:** Scripts reference `Journals - Master Journal List.csv` but the file is `Journals - Journal List.csv`. Align names when touching ingestion code.
 
@@ -80,6 +90,12 @@ Pick one hosting path per deployment; keep provider code host-agnostic.
 - Prefer `os.environ.get(...)` with documented vars in `.env.example`.
 - Respect publisher terms: store links and metadata; do not commit full paywalled text unless licensing allows.
 - Rate-limit requests (`time.sleep` between feeds); handle 403/429 gracefully.
+
+## Project skill (prefer this)
+
+Load **`.cursor/skills/rssagent/SKILL.md`** for ingestion, LLM router, alerts, and generation work in this repo. It replaces scanning many global skills.
+
+For plugin/skill pruning to reduce chat context, see **`docs/project-skills-workflow.md`** (automated) and **`docs/context-setup.md`** (manual plugins).
 
 ## Agent Skills — Use These
 
@@ -108,14 +124,24 @@ Focus agent skills on this stack. Ignore unrelated domains unless the user expli
 | `aws-lambda`, `aws-serverless-deployment` | Lambda cron, packaging |
 | `api-gateway` | HTTP triggers if needed |
 | `workers-best-practices`, `wrangler`, `cloudflare-deploy` | Workers cron, edge deploy |
-| `codex-render-deploy`, `codex-vercel-deploy` | Optional hosted UI or API |
+| `codex-vercel-deploy` | Vercel deploy for UI/API |
 
-### Optional (enable when needed)
+### Web UI (keep enabled)
 
 | Skill | Use for |
 |-------|---------|
-| `ai-sdk` | TypeScript tooling or a future web UI |
-| `nextjs`, `shadcn` | Public article site |
+| `next-best-practices` | Next.js App Router, RSC, routing |
+| `shadcn`, `shadcn-ui` | Component library |
+| `vercel-react-best-practices` | React performance patterns |
+| `ai-sdk` | Streaming LLM output in UI if needed |
+| `frontend-design`, `web-design-guidelines` | Dashboard layout and a11y |
+| `webapp-testing`, `codex-playwright` | UI dev testing and E2E |
+| `modern-web-guidance` | CSS/layout/modern web APIs (plugin) |
+
+### Other optional
+
+| Skill | Use for |
+|-------|---------|
 | `notebook-guidance`, `ml-best-practices` | Feed analysis experiments |
 | `copywriting` | Article voice and digest tone |
 | `loop` | Dev-time monitored polling |

@@ -5,13 +5,14 @@ alwaysApply: true
 
 # RSSAgent Scope
 
-Sports-science RSS ingestion (Python) → SQLite dedupe → alerts + conditional LLM content generation. Public git repo: never commit secrets, `.env`, or `*.db`.
+Sports-science RSS ingestion (Python) → SQLite dedupe → alerts + conditional LLM content generation + **Next.js/shadcn UI** (dev portal or auth-gated). Public git repo: never commit secrets, `.env`, or `*.db`.
 
 ## Stack
 
 - **Ingestion:** `feedparser`, `pandas`, `sqlite3`, `schedule`, optional `BeautifulSoup` fallback
-- **LLM:** Multi-provider router — **Gemini primary**; AWS Bedrock (Claude) secondary; synthesis and generation may use different models
-- **Deploy:** VPS cron, AWS Lambda, or Cloudflare Workers — keep ingestion provider-agnostic
+- **LLM:** Multi-provider router — **Gemini primary**; AWS Bedrock (Claude) secondary
+- **UI:** Next.js App Router, shadcn/ui, TypeScript (dev dashboard → optional auth portal)
+- **Deploy:** Backend — VPS / Lambda / Workers; UI — Vercel (typical)
 
 ## Two paths
 
@@ -22,7 +23,7 @@ Outputs: `content/articles/`, `content/digests/` with YAML frontmatter (sources,
 
 ## Skills to use
 
-Gemini/Vertex, Python deps, AWS Lambda/serverless, Cloudflare Workers/wrangler, security, debug, plan/work, compound docs, code review.
+Prefer project skill `.cursor/skills/rssagent/SKILL.md` first. Then: Gemini/Vertex, Python deps, AWS Lambda/serverless, Cloudflare Workers/wrangler, **Next.js/shadcn/vercel-react-best-practices** for UI. See `docs/context-setup.md` for plugin pruning.
 
 ## Skills to ignore
 

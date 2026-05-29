@@ -1,0 +1,37 @@
+---
+description: RSSAgent project scope — stack, skills, and LLM architecture boundaries
+alwaysApply: true
+---
+
+# RSSAgent Scope
+
+Sports-science RSS ingestion (Python) → SQLite dedupe → alerts + conditional LLM content generation. Public git repo: never commit secrets, `.env`, or `*.db`.
+
+## Stack
+
+- **Ingestion:** `feedparser`, `pandas`, `sqlite3`, `schedule`, optional `BeautifulSoup` fallback
+- **LLM:** Multi-provider router — **Gemini primary**; AWS Bedrock (Claude) secondary; synthesis and generation may use different models
+- **Deploy:** VPS cron, AWS Lambda, or Cloudflare Workers — keep ingestion provider-agnostic
+
+## Two paths
+
+1. **Alert** — every new article → fast customized notification (do not block on LLM)
+2. **Generate** — conditional synthesis + markdown output (per-article and digest); rules TBD
+
+Outputs: `content/articles/`, `content/digests/` with YAML frontmatter (sources, model, provider).
+
+## Skills to use
+
+Gemini/Vertex, Python deps, AWS Lambda/serverless, Cloudflare Workers/wrangler, security, debug, plan/work, compound docs, code review.
+
+## Skills to ignore
+
+Marketing, Figma/Stitch, BigQuery/dbt/Dataform, SageMaker/HyperPod, unrelated frameworks (Rails, WinUI, Chrome ext), media gen, Notion/Linear/Slack research, MCP plugin authoring, Cursor meta utilities.
+
+## Code rules
+
+- Env vars for all API keys and webhooks; document in `.env.example`
+- Provider logic in one router module — not in the RSS poll loop
+- `time.sleep` between feed requests; log errors, don't crash the cycle
+- Match `deepseek.py` logging patterns for new Python code
+- Minimal diffs; no over-engineering until generation thresholds are defined
